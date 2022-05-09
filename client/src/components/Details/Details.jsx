@@ -13,7 +13,7 @@ function Details() {
   const navigate = useNavigate();
 
   const recipe = useSelector((state) => state.recipe);
-  console.log(recipe)
+
   useEffect(() => {
     dispatch(getRecipeById(id));
   }, [dispatch, id]);
