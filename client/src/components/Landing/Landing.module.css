@@ -1,0 +1,100 @@
+.landing{
+    height: 100vh; /* tamaño altura del contenedor padre*/
+    width: 100vw; /* tamaño ancho del contenedor padre*/
+    background-image: url("../../assets/img/img_Landing.jpg"); /*imagen de fondo cargada desde la carpeta assets/img*/
+    background-size: cover; /* la el fondo se ajusta a la pantalla*/
+    background-repeat: no-repeat; /*el fondo no se repide cuando modifican su tamaño */
+    /* background-position-y: -150px; */
+    display: flex; /* El container se comporta como un elemento en bloque y presenta su contenido deacuerdo con el modelo flexblox
+                      al colocarle display: flex, los elementos hijos heredan o se convierten en elementos flexibles*/
+    /*flex-direction: column; /* especifica como colocar los objetos flexibles dentro del contenedor definiendo el eje principal 
+        y la direccion (normal o al revés) en este caso como columna*/
+    justify-content: center;
+    align-items: center;
+}
+
+/* titulo de la pagina Foods*/
+.title{
+    /* border: solid 1px green; */
+
+    /* posicion */
+    position: relative;
+    left: 2%;
+    bottom: 44%;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    
+    /* tipografia tamaño*/
+    font-family: 'Cookie', cursive;
+    font-size: 120px;
+}
+
+.container{
+    display: flex;
+    /* flex-direction: column; */
+    margin-top: 10%;
+    width: 90%;
+    height: 35%;
+    /* border: solid 1px blue; */
+    justify-content: flex-end;
+    margin-top: 12%;
+}
+
+.containerLogo{
+    position:relative;
+    left: 40%;
+    bottom: 44%;
+    /* height: 20vh; */
+    width: 100vw;
+    display:flex;
+    /* border: solid 1px red; */
+    justify-content: flex-end;
+}
+
+.logo{
+    display:block;
+    width: 70px;
+    height: 70px;
+    margin: 10px 30px 10px 10px;
+}
+
+.logo:hover {
+    transition-duration: 300ms; /* tiempo que toma en completar la animacion*/
+    transform: scale(1.07); /* efecto que tendra al hacer click en el boton*/
+}
+
+.logo:active {
+    transition-duration: 300ms; /* tiempo que toma en completar la animacion*/
+    transform: scale(0.90); /* efecto que tendra al hacer click en el boton*/
+}
+
+/* Boton estilo*/
+.btn {
+   display: block; 
+   width: 300px;
+   height: 300px;
+   border-radius: 50%;
+   border: solid black 15px;
+   cursor: pointer;
+   font-family: 'Cookie', cursive; /* fuente desde google fonts - link en public/index.html en caso de que no funcione utiliza cursive*/
+   font-size: 100px; /* tamaño de fuente */
+   margin-right: 70px;
+}
+
+/* animacion del boton*/
+button:hover {
+    transition-duration: 500ms; /*tiempo que toma en completar la animacion*/
+    transform: scale(1.05); /* modifica su tamaño en 0.5 su tamaño original*/
+    border: 0px; /*agregado efectos de borde que se modificaran*/
+    background-color: black; /* color de fondo que cambiara*/
+    color: white; /* color del contenido*/
+}
+
+button:active {
+    transition-duration: 500ms; /* tiempo que toma en completar la animacion*/
+    transform: scale(0.95); /* efecto que tendra al hacer click en el boton*/
+    /* box-shadow: 15px 15px 15px 15px rgba(0,0,0,0.5); */
+    /* border: solid 30px; */
+    /* cambio el borde del boton de 0 a 30 para dar el efecto de presion*/
+}

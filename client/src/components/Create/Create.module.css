@@ -1,0 +1,119 @@
+.contenedor{
+    background-color:#b8c1ec;
+    min-height: 100vh;
+    min-width: 100vw;
+    max-width: 100%;
+    max-height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.contenedorLogo {
+    display:flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-left: 15px;
+}
+
+.title {
+    display: inline-block;
+    margin: 10px;
+    font-family: 'Cookie', cursive;
+    font-size: 45px;
+}
+
+.contenedorLogoHijo:hover {
+    cursor: pointer;
+    transition-duration: 300ms;
+    transform: scale(1.05);
+}
+
+.contenedorLogoHijo:active {
+    transition-duration: 300ms;
+    transform: scale(0.96);
+}
+
+
+.formulario{
+    /* border: solid 1px black; */
+    border-radius: 12px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+}
+
+
+.contenedorFormularioHijo{
+    padding-top: 35px;
+    border: solid 5px #232946;
+    width: 45%;
+    height: auto;
+    border-radius: 30px;
+    background-color: #fffffe;
+}
+
+.contenedorFormularioHijo label{
+    font-size: 23px
+}
+
+.btn{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    width: 150px;
+    height: 40px;
+    border-radius: 12px;
+    margin: 10px;
+    background-color: #fffffe;
+    border-color: #fffffe;
+}
+
+.btn:hover{
+    transition-duration: 300ms;
+    background-color: #b8c1ec;;
+    border: solid #232946 3px;
+    color: black;
+}
+
+
+.crear{
+    font-family: 'Cookie', cursive;
+    font-size: 60px;
+    margin: 10px;
+}
+
+
+.error{
+    color: red;
+}
+
+
+.text{
+    margin: 5px;
+    border-radius: 12px;
+    width: 300px;
+    height: 30px;
+}
+
+.number{
+    text-align: center;
+    border-radius: 15px;
+    width: 50px;
+    height: 30px;
+}
+
+.check{
+    border-radius: 10px;
+    background-color: #232946;
+    color:#b8c1ec;
+    padding: 5px;
+}
+
+.diet{
+    margin:15px;
+}
