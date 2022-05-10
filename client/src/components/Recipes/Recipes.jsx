@@ -7,7 +7,7 @@ function Recipes({recipes}) {
 
   return (
     <div className={style.contenedorPadre}>
-      {typeof recipes === false ?(<div className={style.nofoods}><img clasName={style.imagen} src={nofoods} alt="No se encontraron"/>
+      { recipes === false ?(<div className={style.nofoods}><img clasName={style.imagen} src={nofoods} alt="No se encontraron"/>
         <h1>No se encontraron recetas</h1>
       </div>) : recipes.map((recipe) => (
         <Recipe

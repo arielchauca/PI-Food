@@ -7,7 +7,7 @@ export const getRecipes = (name) => {
             type: LOADING,
         });
     try{
-        return await axios.get(`http://localhost:3001/recipes?name=${name}`)
+        return await axios.get(`/recipes?name=${name}`)
             .then((response) => {
                 dispatch({
                     type: GET_RECIPES,
@@ -21,7 +21,7 @@ export const getRecipes = (name) => {
 }
 
 export const getRecipeById = (id) => async (dispatch) => {
-    return await axios.get(`http://localhost:3001/recipes/${id}`)
+    return await axios.get(`/recipes/${id}`)
         .then((response) => {
             dispatch({
                 type: GET_BY_ID,
@@ -32,7 +32,7 @@ export const getRecipeById = (id) => async (dispatch) => {
 
 
 export const getTypes = () => async (dispatch) => {
-    return await axios.get(`http://localhost:3001/types`)
+    return await axios.get(`/types`)
     .then(response => {
         dispatch({
             type: GET_TYPES,
@@ -42,7 +42,7 @@ export const getTypes = () => async (dispatch) => {
 }
 
 export const postRecipe = (recipe) => async () => {
-   return await axios.post("http://localhost:3001/recipes", recipe);
+   return await axios.post(`/recipes`, recipe);
 };
 
 export const orderByName = (order) => {

@@ -7,14 +7,17 @@ const routes = require('./routes/index.js');
 require('./db.js');
 
 const server = express();
+const cors = require('cors');
 
 server.name = 'API';
 
+server.use(cors());
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
-server.use((req, res, next) => {
+server.use((req, res, next) => { // le pongo un * porque aun nose cual es la url de mi front 
+  // asi que le digo que funcione con todos - en produccion aca  deberia ir la url de produccion
   res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');

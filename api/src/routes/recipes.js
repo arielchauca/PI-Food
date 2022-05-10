@@ -68,7 +68,7 @@ router.get('/', async (req, res, next) => {
             if(recipeAll.length > 0){
                 res.json(recipeAll); 
             }else{
-                res.send('false');
+                res.send(false);
             }
         }catch(error){
             next(error);
