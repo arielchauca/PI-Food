@@ -5,7 +5,8 @@ import {
   ORDER_BY_NAME,
   GET_BY_TYPES,
   ORDER_BY_LEVEL,
-  LOADING
+  LOADING,
+  DB
 } from "./types";
 
 const initialState = {
@@ -23,7 +24,8 @@ function rootReducer(state = initialState, action) {
         ...state,
         recipes: action.payload,
         recipesTypes: action.payload,
-        loading: false
+        loading: false,
+        recipe: {}
       };
     case GET_BY_ID:
       return {
@@ -37,9 +39,14 @@ function rootReducer(state = initialState, action) {
         types: action.payload,
       };
     case GET_BY_TYPES:
-      let orderByDiet = state.recipes.filter(recipe =>
-        recipe.diets.find(d => d.name === action.payload)
-      )
+      let orderByDiet; 
+      if(state.recipes.length > 0){
+       orderByDiet=  state.recipes.filter(recipe =>
+          recipe.diets.find(d => d.name === action.payload)
+        )
+      }else{
+        orderByDiet = []
+      }
       return {
         ...state,
         recipesTypes: orderByDiet,
@@ -105,6 +112,11 @@ function rootReducer(state = initialState, action) {
           ...state,
           loading: true
       }
+      case DB :
+        return {
+          ...state,
+          recipesTypes: action.payload
+        }
     default:
       return state;
   }

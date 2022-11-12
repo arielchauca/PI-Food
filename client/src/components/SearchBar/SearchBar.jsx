@@ -4,12 +4,13 @@ import { useDispatch } from "react-redux";
 import style from "./SearchBar.module.css";
 import logo from "../../assets/img/logo.png";
 
-function SearchBar() {
+function SearchBar({ setCurrenPage }) {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
     dispatch(getRecipes(input));
+    setCurrenPage(1);
   };
 
   return (

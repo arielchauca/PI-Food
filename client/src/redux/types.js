@@ -5,3 +5,4 @@ export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const GET_BY_TYPES = 'GET_BY_TYPES';
 export const ORDER_BY_LEVEL = 'ORDER_BY_LEVEL';
 export const LOADING = 'LOADING';
+export const DB = 'DB';

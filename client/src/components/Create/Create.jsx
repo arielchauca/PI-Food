@@ -60,6 +60,22 @@ function Create() {
     });
   };
 
+  //prueba
+  const dietas = [
+    "vegetarian",
+    "vegan",
+    "gluten free",
+    "dairy free",
+    "lacto ovo vegetarian",
+    "paleolithic",
+    "primal",
+    "pescatarian",
+    "fodmap friendly",
+    "whole 30",
+    "ketogenic",
+  ];
+
+
   //Funcion que maneja cuando el usuario selecciona el foco en el input
   const handleBlur = (e) => {
     //Validar el campo name
@@ -72,7 +88,7 @@ function Create() {
       } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(e.target.value)) {
         setErrors({
           ...errors,
-          name: "Por favor ingrese un nombre valido",
+          name: "Por favor ingrese un nombre sin numeros o caracteres especiales",
         });
       } else {
         setErrors({
@@ -109,7 +125,12 @@ function Create() {
           ...errors,
           puntuation: "El valor a ingresar no puede ser negativo o mayor a 100",
         });
-      } else {
+      } else if (!/^([0-9])*$/.test(e.target.value)){
+        setErrors({
+          ...errors,
+          puntuation: "El valor ingresado tiene que ser un numero"
+        })
+      }else {
         setErrors({
           ...errors,
           puntuation: "",
@@ -149,7 +170,12 @@ function Create() {
           ...errors,
           level: "El valor a ingresar no puede ser negativo o mayor a 100",
         });
-      } else {
+      }else if (!/^([0-9])*$/.test(e.target.value)){
+        setErrors({
+          ...errors,
+          level: "El valor ingresado tiene que ser un numero"
+        }) 
+       } else {
         setErrors({
           ...errors,
           level: "",
@@ -173,11 +199,19 @@ function Create() {
 
     //Validar checkbox de diet
     if (e.target.name === "diet") {
-      if (recipe.diet.length <= 0) {
+      if (recipe.diet.length <= 0 ) {
         setErrors({
           ...errors,
           diet: "Por favor ingrese por lo menos una dieta",
         });
+   }
+   let prueba = recipe.diet.filter(a => !dietas.includes(a))
+   console.log(prueba)
+   if (prueba.length > 0){
+      setErrors({
+        ...errors,
+        diet: "La dieta ingresada debe ser una de la lista"
+      })  
       } else {
         setErrors({
           ...errors,

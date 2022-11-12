@@ -1,5 +1,16 @@
-import { GET_RECIPES, GET_BY_ID, GET_TYPES, ORDER_BY_NAME, GET_BY_TYPES, ORDER_BY_LEVEL, LOADING } from "./types";
+import { GET_RECIPES, GET_BY_ID, GET_TYPES, ORDER_BY_NAME, GET_BY_TYPES, ORDER_BY_LEVEL, LOADING, DB } from "./types";
 import axios from "axios";
+
+
+export const desdeDB = async (dispatch) => {
+    return await axios.get(`/recipes/db`)
+    .then((data) => {
+        dispatch({
+            type: DB,
+            payload: data.data
+        })
+    })
+}
 
 export const getRecipes = (name) => {
     return  async function (dispatch) {
@@ -9,7 +20,7 @@ export const getRecipes = (name) => {
     try{
         return await axios.get(`/recipes?name=${name}`)
             .then((response) => {
-                dispatch({
+               dispatch({
                     type: GET_RECIPES,
                     payload: response.data,
                 });

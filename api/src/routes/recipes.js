@@ -10,6 +10,17 @@ const { AllRecipes , getRecipe } = require('../controllers/recipe');
 //constante con una expresion regular para verificar si un dato es UUIDV4 o no
 const regexExp = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
 
+
+
+router.get('/db', async (req, res, next) => {
+    try{
+        const recipesDB = await Recipe.findAll({include: [{ model: Diet }]})
+        res.json(recipesDB)
+    }catch(error){ 
+        next(error)
+    }
+})
+
 //Get all recipes o buscar por nombre 
 //http://localhost:3001/recipes?name=pizza
 router.get('/', async (req, res, next) => {

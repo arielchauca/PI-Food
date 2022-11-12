@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Paginado.module.css';
 
+//cantidad de recetas en numero entero + funcion que cambia el current
 function Paginado({recipes, page }){
     
     const pageNumber = []

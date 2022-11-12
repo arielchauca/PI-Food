@@ -24,6 +24,7 @@ function Home() {
 
   const types = useSelector((state) => state.types);
   const recipes = useSelector((state) => state.recipesTypes);
+  console.log(recipes.length)
   const loading = useSelector((state) => state.loading);
 
   //Paginados
@@ -62,12 +63,14 @@ function Home() {
   const handleByTypes = (e) => {
     e.preventDefault();
     dispatch(getByTypes(e.target.value));
+    setCurrenPage(1);
   };
 
   return (
     <div className={style.contenedor}>
-      <SearchBar />
+      <SearchBar setCurrenPage={setCurrenPage} />
       <div className={style.contenedorFiltrado}>
+
         {/* Filtrar por tipos de dietas */}
         <select
           className={style.filtros}
